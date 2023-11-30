@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class HealthCollectible : MonoBehaviour
 {
+    void OnTriggerEnter2D(Collider other)
     
-    void Start()
     {
-        Rigidbody = GetComponent<Rigidbody>();
-        currentHealth = maxHealth;
-        currentHealth = 1;
-    }
+        RubyController controller = other.GetComponent<RubyController>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        horizontal = Input.GetAxis("Horizontal");
-        vertical
+        if (controller != null)
+        {
+            if(controller.maxhealth < controller.maxhealth)
+            {
+                controller.Changhealth(1);
+                Destroy(GameObject);
+
+
+            }
+        }
     }
 }
